@@ -41,7 +41,6 @@ export function BookingFormWithValidation({
     const [hasConflict, setHasConflict] = useState(false);
     const [conflictMessage, setConflictMessage] = useState('');
 
-    // Динамічна перевірка конфліктів
     useEffect(() => {
         const checkConflict = async () => {
             if (!date || !startTime || !endTime) {
@@ -49,7 +48,6 @@ export function BookingFormWithValidation({
                 return;
             }
 
-            // Перевірка коректності часу
             if (endTime <= startTime) {
                 setHasConflict(true);
                 setConflictMessage('Час закінчення має бути пізніше за час початку');
@@ -144,7 +142,6 @@ export function BookingFormWithValidation({
                 />
             </div>
 
-            {/* Повідомлення про конфлікт */}
             {(hasConflict || checking) && (
                 <div className={`flex items-start gap-2 p-3 rounded-lg ${hasConflict ? 'bg-red-50 text-red-800' : 'bg-blue-50 text-blue-800'
                     }`}>

@@ -23,7 +23,6 @@ export function LoginForm() {
         setLoading(true);
 
         try {
-            // Встановлюємо persistence залежно від чекбокса
             await setPersistence(
                 auth,
                 rememberMe ? browserLocalPersistence : browserSessionPersistence

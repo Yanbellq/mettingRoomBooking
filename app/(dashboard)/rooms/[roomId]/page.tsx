@@ -27,7 +27,6 @@ export default function RoomDetailPage() {
     const [bookings, setBookings] = useState<Booking[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // Модальні вікна
     const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
     const [isMemberModalOpen, setIsMemberModalOpen] = useState(false);
     const [isEditRoomModalOpen, setIsEditRoomModalOpen] = useState(false);
@@ -35,12 +34,10 @@ export default function RoomDetailPage() {
     const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
     const [isDeleteBookingConfirmOpen, setIsDeleteBookingConfirmOpen] = useState(false);
 
-    // Дані для редагування
     const [editingBooking, setEditingBooking] = useState<Booking | null>(null);
     const [deletingBookingId, setDeletingBookingId] = useState<string | null>(null);
     const [deleteLoading, setDeleteLoading] = useState(false);
 
-    // Додавання учасника
     const [newMemberEmail, setNewMemberEmail] = useState('');
     const [newMemberRole, setNewMemberRole] = useState<'admin' | 'user'>('user');
 
@@ -315,7 +312,6 @@ export default function RoomDetailPage() {
                 </div>
             )}
 
-            {/* Модалка створення бронювання */}
             <Modal
                 isOpen={isBookingModalOpen}
                 onClose={() => setIsBookingModalOpen(false)}
@@ -327,7 +323,6 @@ export default function RoomDetailPage() {
                 />
             </Modal>
 
-            {/* Модалка редагування бронювання */}
             <Modal
                 isOpen={isEditBookingModalOpen}
                 onClose={() => {
@@ -352,7 +347,6 @@ export default function RoomDetailPage() {
                 )}
             </Modal>
 
-            {/* Модалка редагування кімнати */}
             {room && (
                 <EditRoomModal
                     isOpen={isEditRoomModalOpen}
@@ -362,7 +356,6 @@ export default function RoomDetailPage() {
                 />
             )}
 
-            {/* Модалка додавання учасника */}
             <Modal
                 isOpen={isMemberModalOpen}
                 onClose={() => setIsMemberModalOpen(false)}
@@ -398,7 +391,6 @@ export default function RoomDetailPage() {
                 </form>
             </Modal>
 
-            {/* Підтвердження видалення кімнати */}
             <ConfirmModal
                 isOpen={isDeleteConfirmOpen}
                 onClose={() => setIsDeleteConfirmOpen(false)}
@@ -409,7 +401,6 @@ export default function RoomDetailPage() {
                 loading={deleteLoading}
             />
 
-            {/* Підтвердження скасування бронювання */}
             <ConfirmModal
                 isOpen={isDeleteBookingConfirmOpen}
                 onClose={() => {

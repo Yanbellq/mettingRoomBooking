@@ -17,7 +17,6 @@ const BOOKINGS_COLLECTION = 'bookings';
 
 export const bookingService = {
     async createBooking(booking: Omit<Booking, 'id' | 'createdAt'>): Promise<string> {
-        // Check for conflicts
         const hasConflict = await this.checkConflict(
             booking.roomId,
             booking.startTime,
